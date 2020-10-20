@@ -25,7 +25,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - uses: crazy-max/ghaction-chocolatey@v1
-      if: runner.os == "windows-latest"
+      if: ${{ runner.os == "windows-latest" }}
       with:
         args: install llvm
     - run: npm install
