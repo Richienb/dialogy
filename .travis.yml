@@ -28,6 +28,6 @@ deploy:
   provider: script
   script: npm run upload-binary
   edge: true
-  skip_cleanup: true
+  cleanup: false
   on:
     tags: true
