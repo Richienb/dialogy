@@ -1,28 +1,59 @@
 {
-	"name": "the-module",
+	"name": "dialogy",
 	"version": "0.0.0",
-	"description": "My awesome module.",
-	"repository": "https://github.com/Richienb/the-module.git",
+	"description": "Show native dialogs.",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Richienb/dialogy.git"
+	},
 	"author": "Richie Bendall <richiebendall@gmail.com>",
 	"license": "MIT",
-	"main": "index.js",
+	"main": "dist/index.js",
 	"files": [
-		"index.js",
-		"index.d.ts"
+		"dist",
+		"native/index.node"
 	],
 	"engines": {
 		"node": ">=10"
 	},
 	"scripts": {
 		"lint": "xo",
-		"test": "xo && ava"
+		"test": "xo && ava",
+		"build": "neon build --release & tsc",
+		"upload-binary": "node-pre-gyp package && node-pre-gyp-github publish",
+		"install": "node-pre-gyp install --fallback-to-build=false || neon build --release"
 	},
-	"keywords": [],
-	"dependencies": {},
+	"keywords": [
+		"dialog",
+		"native",
+		"folder",
+		"file",
+		"open",
+		"save",
+		"windows",
+		"macos",
+		"linux",
+		"os"
+	],
+	"dependencies": {
+		"neon-cli": "^0.5.0",
+		"node-pre-gyp": "^0.15.0",
+		"node-pre-gyp-github": "^1.4.3"
+	},
 	"devDependencies": {
+		"@richienb/tsconfig": "^0.1.1",
 		"ava": "^3.13.0",
 		"eslint-config-richienb": "^0.5.0",
+		"typescript": "^4.0.3",
 		"xo": "^0.33.1"
+	},
+	"binary": {
+		"module_name": "index",
+		"host": "https://github.com/Richienb/dialogy/releases/download/",
+		"remote_path": "{version}",
+		"package_name": "{node_abi}-{platform}-{arch}.tar.gz",
+		"module_path": "./native",
+		"pkg_path": "."
 	},
 	"xo": {
 		"extends": "richienb"
