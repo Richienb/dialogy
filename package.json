@@ -1,6 +1,6 @@
 {
 	"name": "dialogy",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Show native dialogs.",
 	"repository": {
 		"type": "git",
