@@ -1,4 +1,4 @@
-# dialogy [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/dialogy/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/dialogy)
+# dialogy [![Travis CI Build Status](https://img.shields.io/github/workflow/status/Richienb/dialogy/test/master?style=for-the-badge)](https://github.com/Richienb/dialogy/actions?query=branch%3Amaster)
 
 Show native dialogs.
 
