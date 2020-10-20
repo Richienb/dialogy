@@ -44,6 +44,7 @@
 		"@richienb/tsconfig": "^0.1.1",
 		"ava": "^3.13.0",
 		"eslint-config-richienb": "^0.5.0",
+		"ts-node": "^9.0.0",
 		"typescript": "^4.0.3",
 		"xo": "^0.33.1"
 	},
@@ -56,6 +57,22 @@
 		"pkg_path": "."
 	},
 	"xo": {
-		"extends": "richienb"
+		"extends": "richienb/typescript",
+		"overrides": [
+			{
+				"files": "test.ts",
+				"rules": {
+					"node/no-missing-import": 0
+				}
+			}
+		]
+	},
+	"ava": {
+		"extensions": [
+			"ts"
+		],
+		"require": [
+			"ts-node/register"
+		]
 	}
 }
