@@ -200,6 +200,21 @@ fn folder(mut context: FunctionContext) -> JsResult<JsString> {
 		.string(dialogs::select_folder_dialog(title, default_value).unwrap_or("".to_string())))
 }
 
+fn text_input(mut context: FunctionContext) -> JsResult<JsString> {
+	let title = &*context.argument::<JsString>(0)?.value(&mut context);
+	let message = &*context.argument::<JsString>(1)?.value(&mut context);
+	let default_value = &*context.argument::<JsString>(2)?.value(&mut context);
+
+	Ok(context.string(dialogs::input_box(title, message, default_value).unwrap_or("".to_string())))
+}
+
+fn password_input(mut context: FunctionContext) -> JsResult<JsString> {
+	let title = &*context.argument::<JsString>(0)?.value(&mut context);
+	let message = &*context.argument::<JsString>(1)?.value(&mut context);
+
+	Ok(context.string(dialogs::password_box(title, message).unwrap_or("".to_string())))
+}
+
 register_module!(mut module, {
 	module.export_function("color", color)?;
 	module.export_function("alert", alert)?;
@@ -210,5 +225,7 @@ register_module!(mut module, {
 	module.export_function("openFileMultiple", open_file_multiple)?;
 	module.export_function("openFileMultipleFilter", open_file_multiple_filter)?;
 	module.export_function("folder", folder)?;
+	module.export_function("textInput", text_input)?;
+	module.export_function("passwordInput", password_input)?;
 	Ok(())
 });

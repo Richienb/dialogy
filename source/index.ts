@@ -19,7 +19,7 @@ type Filter = {
 /**
 Ask the user to select a color.
 */
-const color = ({
+export const color = ({
 	title = "Choose a color",
 	defaultValue = "#000000"
 }: {
@@ -43,7 +43,7 @@ const color = ({
 /**
 Show an alert box.
 */
-const alert = ({
+export const alert = ({
 	title = "Info",
 	message = "",
 	defaultValue = true,
@@ -89,7 +89,7 @@ const alert = ({
 /**
 Ask the user to choose a path to save a file in.
 */
-const saveFile = ({
+export const saveFile = ({
 	title = "Save file",
 	defaultValue = "",
 	filter
@@ -116,7 +116,7 @@ const saveFile = ({
 /**
 Ask the user to select a file.
 */
-const openFile = ({
+export const openFile = ({
 	title = "Select file",
 	defaultValue = "",
 	filter
@@ -170,7 +170,7 @@ openFile.multiple = ({
 /**
 Ask the user to select a folder.
 */
-const folder = ({
+export const folder = ({
 	title = "Select folder",
 	defaultValue = ""
 }: {
@@ -187,4 +187,38 @@ const folder = ({
 	return native.folder(title, defaultValue) || undefined
 }
 
-export { color, alert, saveFile, openFile, folder }
+/**
+Ask the user for text input.
+*/
+export const input = ({
+	title = "Input",
+	message = "",
+	defaultValue = "",
+	isPassword = false
+}: {
+	/**
+	The title of the dialog.
+	*/
+	title?: string
+
+	/**
+	The message of the prompt.
+	*/
+	message?: string
+
+	/**
+	The default value to prefill in the dialog. Doesn't work if `isPassword` is true.
+	*/
+	defaultValue?: string
+
+	/**
+	Whether the input should be treated as a password. If set to `true`, the typed text will appear as dots.
+	*/
+	isPassword?: boolean
+} = {}): string => {
+	if (isPassword) {
+		return native.passwordInput(title, message)
+	}
+
+	return native.textInput(title, message, defaultValue)
+}

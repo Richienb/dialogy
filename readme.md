@@ -153,3 +153,25 @@ The title of the dialog.
 Type: `string`
 
 The default path to set.
+
+### dialogy.input(options?)
+
+Ask the user for text input.
+
+#### options
+
+Type: `object`
+
+Same as [`dialogy.saveFile`](#dialogysavefileoptions) except for the following:
+
+##### defaultValue
+
+Type: `string`
+
+The default value to prefill in the dialog. Doesn't work if `isPassword` is true.
+
+##### isPassword
+
+Type: `boolean`
+
+Whether the input should be treated as a password. If set to `true`, the typed text will appear as dots.
