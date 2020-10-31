@@ -37,13 +37,13 @@
 	],
 	"dependencies": {
 		"neon-cli": "^0.5.0",
-		"node-pre-gyp": "^0.15.0",
-		"node-pre-gyp-github": "^1.4.3"
+		"node-pre-gyp": "^0.15.0"
 	},
 	"devDependencies": {
 		"@richienb/tsconfig": "^0.1.1",
 		"ava": "^3.13.0",
 		"eslint-config-richienb": "^0.5.0",
+		"node-pre-gyp-github": "^1.4.3",
 		"ts-node": "^9.0.0",
 		"typescript": "^4.0.3",
 		"xo": "^0.33.1"
