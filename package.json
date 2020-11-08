@@ -10,8 +10,7 @@
 	"license": "MIT",
 	"main": "dist/index.js",
 	"files": [
-		"dist",
-		"native/index.node"
+		"dist"
 	],
 	"engines": {
 		"node": ">=10"
