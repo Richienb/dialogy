@@ -19,7 +19,7 @@
 	"scripts": {
 		"lint": "xo",
 		"test": "xo && ava",
-		"build": "neon build --release & tsc",
+		"build": "tsc & neon build --release",
 		"upload-binary": "node-pre-gyp package && node-pre-gyp-github publish",
 		"install": "node-pre-gyp install --fallback-to-build=false || neon build --release"
 	},
